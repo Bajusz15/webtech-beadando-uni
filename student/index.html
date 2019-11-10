@@ -3,15 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Beadando</title>
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
             crossorigin="anonymous">
     </script>
-
 </head>
 <body>
-
+<nav>
+    <ul>
+        <li><a id="cars" onclick="DrawCarTable()">Cars</a></li>
+        <li><a id="manufacturers" onclick="DrawManufacturers()">Manufacturers</a></li>
+        <li><a id="addCar">Add car</a></li>
+        <li><a id="addManufacturer">Add manufacturer</a></li>
+    </ul>
+</nav>
+<div class="wrapper">
+    <div class="checkboxes"></div>
+    <div class="content"></div>
+    <div class="cards"></div>
+</div>
 </body>
+<script src="js/main.js"></script>
+
 
 
 </html>
