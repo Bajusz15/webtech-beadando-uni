@@ -87,7 +87,7 @@ function DrawManufacturers() {
     getManufacturers().done(() => {
         manufacturers.forEach((value) => {
             console.log(value);
-            cars.append(`
+            cards.append(`
                 <div class="card">
                 <h3>${value.name}</h3>
                 <p>${value.country}</p>
