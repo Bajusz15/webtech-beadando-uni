@@ -1,6 +1,4 @@
-// create form to add cars
-//create form to add manufacturers
-//on index page, show manufacturers and their cars. manufacturers should be selected, and stored in cookies.
+
 var manufacturers = [];
 var manufacturerNames = [];
 var cars = [];
@@ -204,7 +202,7 @@ function openCarForm() {
         <label for="color">
             <strong>color</strong>
         </label>
-        <input type="text" placeholder="6.5 l" name="color" required>
+        <input type="text" placeholder="red" name="color" required>
         <label for="year">
             <strong>year</strong>
         </label>
