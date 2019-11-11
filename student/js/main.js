@@ -137,7 +137,6 @@ function closeForm() {
     document.getElementById("popupForm").style.display = "none";
 }
 function openCarForm() {
-    openForm();
     $(".form-container").html(`
         <h2>Add new Car</h2>
         <label for="name">
@@ -151,7 +150,7 @@ function openCarForm() {
         <label for="color">
             <strong>color</strong>
         </label>
-        <input type="color" placeholder="6.5 l" name="color" required>
+        <input type="text" placeholder="6.5 l" name="color" required>
         <label for="year">
             <strong>year</strong>
         </label>
@@ -159,11 +158,11 @@ function openCarForm() {
         <label for="manufacturer">
             <strong>manufacturer</strong>
         </label>
-        <input type="text" placeholder="50" name="manufacturer" required>
+        <input type="text" placeholder="Skoda" name="manufacturer" required>
         <label for="available">
             <strong>available</strong>
         </label>
-        <input type="number" placeholder="6.5 l" name="available" required>
+        <input type="number" placeholder="2" name="available" required>
         <label for="horsepower">
             <strong>horsepower</strong>
         </label>
@@ -171,6 +170,7 @@ function openCarForm() {
         <button type="submit" class="btn" onclick="submitCarForm()">Submit</button>
         <button type="submit" class="btn cancel" onclick="closeForm()">Cancel</button>
         `);
+    openForm();
 }
 
 function submitCarForm() {
@@ -185,3 +185,32 @@ function submitCarForm() {
     }).done(DrawCarTable());
 }
 
+function openManufacturerForm() {
+    $(".form-container").html(`
+        <h2>Add new Car</h2>
+        <label for="name">
+            <strong>name</strong>
+        </label>
+        <input type="text" placeholder="ford" name="name" required>
+        <label for="country">
+            <strong>country</strong>
+        </label>
+        <input type="text" placeholder="6.5 l" name="country" required>
+        <label for="founded">
+            <strong>founded</strong>
+        </label>
+        <input type="text" placeholder="1999" name="founded" required>
+        
+      
+        <button type="submit" class="btn" onclick="submitManufacturerForm()">Submit</button>
+        <button type="submit" class="btn cancel" onclick="closeForm()">Cancel</button>
+        `);
+    openForm();
+}
+function submitManufacturerForm() {
+    $.post("/addManufacturers", {
+        name : $( "input[name='name']" ).val(),
+        country: $( "input[name='country']" ).val(),
+        founded: $( "input[name='founded']" ).val(),
+    }).done(DrawManufacturers());
+}
