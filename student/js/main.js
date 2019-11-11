@@ -16,6 +16,7 @@ jQuery(function ($) {
 
 
 function DrawCheckBoxes() {
+    $(".wrapper").show();
     let checkboxes = $(".checkboxes");
     checkboxes.show();
     checkboxes.empty();
@@ -37,6 +38,7 @@ function DrawCarTable() {
     checkedBoxes = getCheckedBoxes();
     console.log(checkedBoxes);
     //let wrapper = $(".wrapper");
+    $(".wrapper").show();
     $(".checkboxes").show();
     let content = $(".content");
     content.show();
@@ -82,7 +84,9 @@ function DrawManufacturers() {
     //$(".wrapper").empty();
     $(".checkboxes").hide();
     $(".content").hide();
+    $(".wrapper").hide();
     let cards = $(".cards");
+    cards.empty();
     cards.show();
     getManufacturers().done(() => {
         manufacturers.forEach((value) => {
