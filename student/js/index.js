@@ -67,7 +67,7 @@ function DrawCarTable() {
                         <td>${value.name}</td>
                         <td>${value.consumption}</td>
                         <td>${value.color}</td>
-                        <td>${value.manufacturer}</td>
+                        <td>${value.manufacturer} <img src="images/${value.manufacturer}.jpg" height="20" width="20" alt=""></td>
                         <td>${value.available}</td>
                         <td>${value.year}</td>
                         <td>${value.horsepower}</td>
