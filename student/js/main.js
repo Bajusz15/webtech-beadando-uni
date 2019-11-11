@@ -130,3 +130,58 @@ function getManufacturerNames() {
         manufacturerNames = data;
     });
 }
+function openForm() {
+    document.getElementById("popupForm").style.display = "block";
+}
+function closeForm() {
+    document.getElementById("popupForm").style.display = "none";
+}
+function openCarForm() {
+    openForm();
+    $(".form-container").html(`
+        <h2>Add new Car</h2>
+        <label for="name">
+            <strong>name</strong>
+        </label>
+        <input type="text" placeholder="ford" name="name" required>
+        <label for="consumption">
+            <strong>consumption</strong>
+        </label>
+        <input type="text" placeholder="6.5 l" name="consumption" required>
+        <label for="color">
+            <strong>color</strong>
+        </label>
+        <input type="color" placeholder="6.5 l" name="color" required>
+        <label for="year">
+            <strong>year</strong>
+        </label>
+        <input type="text" placeholder="1999" name="year" required>
+        <label for="manufacturer">
+            <strong>manufacturer</strong>
+        </label>
+        <input type="text" placeholder="50" name="manufacturer" required>
+        <label for="available">
+            <strong>available</strong>
+        </label>
+        <input type="number" placeholder="6.5 l" name="available" required>
+        <label for="horsepower">
+            <strong>horsepower</strong>
+        </label>
+        <input type="number" placeholder="50" name="horsepower" required>
+        <button type="submit" class="btn" onclick="submitCarForm()">Submit</button>
+        <button type="submit" class="btn cancel" onclick="closeForm()">Cancel</button>
+        `);
+}
+
+function submitCarForm() {
+    $.post("/addCar", {
+        name : $( "input[name='name']" ).val(),
+        color:  $( "input[name='color']" ).val(),
+        consumption: $( "input[name='consumption']" ).val(),
+        year: $( "input[name='year']" ).val(),
+        manufacturer: $( "input[name='manufacturer']" ).val(),
+        available: $( "input[name='available']" ).val(),
+        horsepower: $( "input[name='horsepower']" ).val()
+    }).done(DrawCarTable());
+}
+

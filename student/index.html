@@ -14,8 +14,8 @@
     <ul>
         <li><a id="cars" onclick="DrawCarTable()">Cars</a></li>
         <li><a id="manufacturers" onclick="DrawManufacturers()">Manufacturers</a></li>
-        <li><a id="addCar">Add car</a></li>
-        <li><a id="addManufacturer">Add manufacturer</a></li>
+        <li><a id="addCar" onclick="openCarForm()">Add car</a></li>
+        <li><a id="addManufacturer" onclick="openForm()">Add manufacturer</a></li>
     </ul>
 </nav>
 <div class="wrapper">
@@ -23,6 +23,13 @@
     <div class="content"></div>
 </div>
 <div class="cards"></div>
+<div class="login-popup">
+    <div class="form-popup" id="popupForm">
+        <div class="form-container">
+
+        </div>
+    </div>
+</div>
 </body>
 <script src="js/main.js"></script>
 
