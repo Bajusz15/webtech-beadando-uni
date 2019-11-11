@@ -113,10 +113,34 @@ function DrawManufacturerNames() {
             cards.append(`
                 <div class="card">
                 <h3>${value}</h3>
-                <p><button id="showCars" onclick="removeCheckedBoxes('${value}')" >Show cars from this manufacturer</button></p>
+                <p><button id="showCars" onclick="DrawManufacturerCars('${value}')" >Show cars from this manufacturer</button></p>
                 </div>`);
         })
     });
+}
+
+function DrawManufacturerCars(manufacturer) {
+    document.cookie = "name=" + manufacturer;
+    $(".checkboxes").hide();
+    $(".content").hide();
+    $(".wrapper").hide();
+    let cards = $(".cards");
+    cards.empty();
+    cards.show();
+
+    $.get( "/manufacturer", function( data ) {
+        data.forEach((value) => {
+
+            cards.append(`
+                <div class="card">
+                <h3>${value.name}</h3>
+                <p>${value.consumption}</p>
+                <p>${value.color}</p>
+                <p>${value.manufacturer}</p>
+                <p>${value.available}</p>
+                </div>`);
+        })
+    })
 }
 
 function getCheckedBoxes() {
