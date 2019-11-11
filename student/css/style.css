@@ -119,3 +119,12 @@ li a:hover {
 .form-container .btn:hover, .open-button:hover {
     opacity: 1;
 }
+#showCars {
+    background-color: #1c87c9;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.8;
+}

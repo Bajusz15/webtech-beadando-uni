@@ -101,6 +101,24 @@ function DrawManufacturers() {
     })
 }
 
+function DrawManufacturerNames() {
+    $(".checkboxes").hide();
+    $(".content").hide();
+    $(".wrapper").hide();
+    let cards = $(".cards");
+    cards.empty();
+    cards.show();
+    getManufacturerNames().done(() => {
+        manufacturerNames.forEach((value, index) => {
+            cards.append(`
+                <div class="card">
+                <h3>${value}</h3>
+                <p><button id="showCars" onclick="removeCheckedBoxes('${value}')" >Show cars from this manufacturer</button></p>
+                </div>`);
+        })
+    });
+}
+
 function getCheckedBoxes() {
     let cb = $("input[type=checkbox]").filter((i,e) => {
         console.log(e);
@@ -109,6 +127,14 @@ function getCheckedBoxes() {
         return e.value;
     });
     return cb.get();
+}
+function removeCheckedBoxes(manufacturer) {
+    $("input[type=checkbox]").prop('checked', false);
+    let toCheck = $("input[type=checkbox]").filter((i, e) => {
+        return e.value === manufacturer;
+    });
+    toCheck.prop('checked', true);
+    DrawCarTable();
 }
 
 //get all cars from api
@@ -130,6 +156,10 @@ function getManufacturerNames() {
         manufacturerNames = data;
     });
 }
+
+
+
+
 function openForm() {
     document.getElementById("popupForm").style.display = "block";
 }
@@ -187,15 +217,15 @@ function submitCarForm() {
 
 function openManufacturerForm() {
     $(".form-container").html(`
-        <h2>Add new Car</h2>
+        <h2>Add new Manufacturer</h2>
         <label for="name">
             <strong>name</strong>
         </label>
-        <input type="text" placeholder="ford" name="name" required>
+        <input type="text" placeholder="Mclaren" name="name" required>
         <label for="country">
             <strong>country</strong>
         </label>
-        <input type="text" placeholder="6.5 l" name="country" required>
+        <input type="text" placeholder="UK" name="country" required>
         <label for="founded">
             <strong>founded</strong>
         </label>
